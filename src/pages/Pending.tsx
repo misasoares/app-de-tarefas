@@ -22,11 +22,11 @@ export default function Pending() {
   return (
     <>
       <MySearch />
-      <h1>Tarefas concluidas</h1>
+      <h1>Tarefas Pendentes</h1>
 
 
       <List sx={{ width: "100%", maxWidth: 360 }}>
-        {tasksRedux.map((t) => t.checked === false ? (
+        {tasksRedux.map((t:TaskType) => t.checked === false ? (
           <ListItem key={t.id}>
             <Checkbox onChange={() => checkTasks(t)} style={{ color: "#009688" }} />
             {t.content}

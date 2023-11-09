@@ -24,7 +24,9 @@ export default function FloatingActionButtons() {
 
   const handleAddTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
     dispatch(addTask({id:genId(), content:input, checked:false}))
+    
     setInput("");
 
     setOpen(false);

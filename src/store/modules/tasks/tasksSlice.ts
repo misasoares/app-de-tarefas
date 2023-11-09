@@ -8,20 +8,24 @@ export interface TaskType {
 }
 
 const initialState: TaskType[] = [];
+const storageLocal = localStorage.getItem("tasks");
 
 const tasksSlice = createSlice({
   name: "tasks",
-  initialState,
+  initialState: storageLocal ? JSON.parse(storageLocal) : initialState,
   reducers: {
     addTask: (state, action: PayloadAction<TaskType>) => {
       state.push(action.payload);
+      localStorage.setItem("tasks", JSON.stringify(state));
       return state;
     },
     toggleTaskCheck: (state, action: PayloadAction<TaskType>) => {
-      const task = state.find((task) => task.id === action.payload.id);
+      const task = state.find((task: TaskType) => task.id === action.payload.id);
       if (task) {
         task.checked = !task.checked;
       }
+      localStorage.setItem("tasks", JSON.stringify(state));
+      return state;
     },
     clearState: () => {
       return initialState;

@@ -26,7 +26,7 @@ export default function Completes() {
 
 
       <List sx={{ width: "100%", maxWidth: 360 }}>
-        {tasksRedux.map((t) => t.checked === true ? (
+        {tasksRedux.map((t:TaskType) => t.checked === true ? (
           <ListItem key={t.id}>
             <Checkbox defaultChecked onChange={() => checkTasks(t)} style={{ color: "#009688" }} />
             {t.content}

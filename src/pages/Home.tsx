@@ -8,6 +8,7 @@ import { TaskType, toggleTaskCheck } from "../store/modules/tasks/tasksSlice";
 
 export default function Home() {
   const tasksRedux = useAppSelector((state) => state.tasks);
+
   const dispatch = useAppDispatch();
 
   function checkTasks(t: TaskType) {
@@ -21,7 +22,7 @@ export default function Home() {
       <p>Quantia de tasks: {tasksRedux.length}</p>
 
       <List sx={{ width: "100%", maxWidth: 360 }}>
-        {tasksRedux.map((t) => (
+        {tasksRedux.map((t: TaskType) => (
           <ListItem key={t.id}>
             {t.checked === true ? <Checkbox defaultChecked onChange={() => checkTasks(t)} style={{ color: "#009688" }} /> : <Checkbox onChange={() => checkTasks(t)} style={{ color: "#009688" }} />}
             {t.content}
