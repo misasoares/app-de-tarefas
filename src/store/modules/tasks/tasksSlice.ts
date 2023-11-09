@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface TaskType {
+export interface TaskType {
   id: string;
   content: string;
   checked: boolean;
@@ -17,11 +17,17 @@ const tasksSlice = createSlice({
       state.push(action.payload);
       return state;
     },
+    toggleTaskCheck: (state, action: PayloadAction<TaskType>) => {
+      const task = state.find((task) => task.id === action.payload.id);
+      if (task) {
+        task.checked = !task.checked;
+      }
+    },
     clearState: () => {
       return initialState;
     },
   },
 });
 
-export const { addTask, clearState } = tasksSlice.actions;
+export const { addTask, clearState, toggleTaskCheck } = tasksSlice.actions;
 export default tasksSlice.reducer;

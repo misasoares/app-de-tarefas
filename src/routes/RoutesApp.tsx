@@ -3,6 +3,7 @@ import React from "react";
 import Home from "../pages/Home";
 import Navbar from "../components/Navbar";
 import Completes from "../pages/Completes";
+import Pending from "../pages/Pending";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/completes",
     element: <Navbar children={<Completes />} />,
+  },
+  {
+    path: "/pending",
+    element: <Navbar children={<Pending />} />,
   },
 ]);
 

@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 
 
 
-export default function Completes() {
+export default function Pending() {
   const tasksRedux = useAppSelector((state) => state.tasks);
   const dispatch = useAppDispatch();
 
@@ -26,9 +26,9 @@ export default function Completes() {
 
 
       <List sx={{ width: "100%", maxWidth: 360 }}>
-        {tasksRedux.map((t) => t.checked === true ? (
+        {tasksRedux.map((t) => t.checked === false ? (
           <ListItem key={t.id}>
-            <Checkbox defaultChecked onChange={() => checkTasks(t)} style={{ color: "#009688" }} />
+            <Checkbox onChange={() => checkTasks(t)} style={{ color: "#009688" }} />
             {t.content}
           </ListItem>
         ): null)}
