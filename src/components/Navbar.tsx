@@ -15,8 +15,9 @@ export default function Navbar(props: NavbarProps) {
   const navigate = useNavigate();
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    event.preventDefault()
     setValue(newValue);
-    // Navegação com 'if' ao invés de 'switch'
+  
     if (newValue === 0) {
       navigate("/");
     } else if (newValue === 1) {
