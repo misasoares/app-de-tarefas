@@ -29,6 +29,7 @@ const tasksSlice = createSlice({
     },
     deleteSelectedTask: (state, action: PayloadAction<number>) => {
       state.splice(action.payload, 1);
+      localStorage.setItem("tasks", JSON.stringify(state));
       return state;
     },
     clearState: () => {
