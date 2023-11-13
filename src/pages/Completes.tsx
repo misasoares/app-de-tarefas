@@ -31,7 +31,7 @@ export default function Completes() {
 
  
   return (
-    <>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
       <MySearch search={getSearch} />
       <h1>Tarefas concluidas</h1>
       <p>Você tem {concludeLength.length} tarefas concluídas.</p>
@@ -63,6 +63,6 @@ export default function Completes() {
       <div style={{ position: "absolute", bottom: "30px", right: "30px" }}>
         <FloatingActionButtons />
       </div>
-    </>
+    </div>
   );
 }

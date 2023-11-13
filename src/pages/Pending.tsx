@@ -32,7 +32,7 @@ export default function Pending() {
 
 
   return (
-    <>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
       <MySearch search={getSearch}/>
       <h1>Tarefas Pendentes</h1>
     <p>Você tem {pendingLength.length} tarefas pendentes.</p>
@@ -56,6 +56,6 @@ export default function Pending() {
       <div style={{ position: "absolute", bottom: "30px", right: "30px" }}>
         <FloatingActionButtons />
       </div>
-    </>
+    </div>
   );
 }
