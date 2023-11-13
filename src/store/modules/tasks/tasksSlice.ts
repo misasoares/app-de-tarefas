@@ -27,11 +27,15 @@ const tasksSlice = createSlice({
       localStorage.setItem("tasks", JSON.stringify(state));
       return state;
     },
+    deleteSelectedTask: (state, action: PayloadAction<number>) => {
+      state.splice(action.payload, 1);
+      return state;
+    },
     clearState: () => {
       return initialState;
     },
   },
 });
 
-export const { addTask, clearState, toggleTaskCheck } = tasksSlice.actions;
+export const { addTask, clearState, toggleTaskCheck, deleteSelectedTask } = tasksSlice.actions;
 export default tasksSlice.reducer;
