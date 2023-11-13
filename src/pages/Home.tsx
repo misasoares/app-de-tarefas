@@ -29,14 +29,14 @@ export default function Home() {
   }
 
   function apagarTask(index: number) {
-    dispatch(deleteSelectedTask(index))
+    dispatch(deleteSelectedTask(index));
   }
 
   return (
-    <>
+    <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
       <MySearch search={getSearch} />
       <h1>Lista de tarefas</h1>
-      <p>Quantia de tasks: {tasksRedux.length}</p>
+      <p>Você tem {tasksRedux.length} tarefas.</p>
 
       <List sx={{ width: "100%", maxWidth: 360 }}>
         {filterdTasks.length > 0
@@ -50,9 +50,9 @@ export default function Home() {
                   )}
                   {f.content}
                 </div>
-                
+
                 <div>
-                <DeleteForeverIcon />
+                  <DeleteForeverIcon />
                 </div>
               </ListItem>
             ))
@@ -76,6 +76,6 @@ export default function Home() {
       <div style={{ position: "absolute", bottom: "30px", right: "30px" }}>
         <FloatingActionButtons />
       </div>
-    </>
+    </div>
   );
 }

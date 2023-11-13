@@ -28,12 +28,14 @@ export default function Pending() {
     console.log(filterdTasks)
   }
 
+  const pendingLength = tasksRedux.filter((t:TaskType)=> !t.checked)
+
 
   return (
     <>
       <MySearch search={getSearch}/>
       <h1>Tarefas Pendentes</h1>
-
+    <p>Você tem {pendingLength.length} tarefas pendentes.</p>
 
       <List sx={{ width: "100%", maxWidth: 360 }}>
       {filterdTasks.length > 0 ? filterdTasks.map((f)=> f.checked === false?(

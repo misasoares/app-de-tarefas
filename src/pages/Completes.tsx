@@ -5,12 +5,14 @@ import ListItem from "@mui/material/ListItem";
 import Checkbox from "@mui/material/Checkbox";
 import { TaskType, toggleTaskCheck } from "../store/modules/tasks/tasksSlice";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
-import { useState } from "react";
+import {  useState } from "react";
 
 export default function Completes() {
   const tasksRedux = useAppSelector((state) => state.tasks);
   const [filterdTasks, setFilteredTasks] = useState<TaskType[]>([]);
   const dispatch = useAppDispatch();
+
+
 
   function checkTasks(t: TaskType) {
     dispatch(toggleTaskCheck(t));
@@ -25,10 +27,14 @@ export default function Completes() {
     );
   }
 
+  const concludeLength = tasksRedux.filter((t:TaskType)=> t.checked)
+
+ 
   return (
     <>
       <MySearch search={getSearch} />
       <h1>Tarefas concluidas</h1>
+      <p>Você tem {concludeLength.length} tarefas concluídas.</p>
 
       <List sx={{ width: "100%", maxWidth: 360 }}>
         {filterdTasks.length > 0
