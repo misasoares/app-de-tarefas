@@ -16,7 +16,7 @@ const tasksSlice = createSlice({
   reducers: {
     addTask: (state, action: PayloadAction<TaskType>) => {
       state.push(action.payload);
-      localStorage.setItem("tasks", JSON.stringify(state));
+
       return state;
     },
     toggleTaskCheck: (state, action: PayloadAction<TaskType>) => {
@@ -24,12 +24,12 @@ const tasksSlice = createSlice({
       if (task) {
         task.checked = !task.checked;
       }
-      localStorage.setItem("tasks", JSON.stringify(state));
+
       return state;
     },
     deleteSelectedTask: (state, action: PayloadAction<number>) => {
       state.splice(action.payload, 1);
-      localStorage.setItem("tasks", JSON.stringify(state));
+
       return state;
     },
     clearState: () => {
